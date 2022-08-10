@@ -7,8 +7,9 @@ def pascal(n):
     for j in range(n):
         M[j][0] = 1
         M[j][j] = 1
-        for i in range(1,j):
+        for i in range(1, j):
             M[j][i] = M[j-1][i-1] + M[j-1][i]
+
 
 pascal(n)
 
