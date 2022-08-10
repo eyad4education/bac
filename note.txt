@@ -1,0 +1,5 @@
+# Matrice Notes
+
+m = [([int() for i in range(n)]) for i in range(n)]
+M = [([int()] * n) for i in range(n)]
+
