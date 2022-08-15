@@ -78,15 +78,24 @@ def remplirM(c1):
     F.close()
 
 
-def afficher(fch, m, a, b):
-    F = open(fch, "r")
+def afficher(fch1, fch2, m, a, b):
+    F = open(fch1, "rb")
+    G = open(fch2, "r")
     print()
-    ch = F.readline().rstrip()
+    fin_fichier = False
+    while not fin_fichier:
+        try:
+            e = pic.load(F)
+            print(e["nom"], "   ", e["pr"], "   ", e["age"], "   ", e["con"])
+        except:
+            fin_fichier = True
+    print()
+    ch = G.readline().rstrip()
     while ch != "":
         print(ch)
-        ch = F.readline().rstrip()
+        ch = G.readline().rstrip()
 
-    F.close()
+    G.close()
     print()
     for j in range(a):
         for i in range(b):
@@ -101,4 +110,4 @@ c2 = "clients.txt"
 remplir1(c1, n)
 remplir2(c1, c2)
 remplirM(c1)
-afficher(c2, m, a, b)
+afficher(c1, c2, m, a, b)
