@@ -2,3 +2,5 @@ main.py
 *.dat
 *.txt
 !note.txt
+*.algo
+*.alg
