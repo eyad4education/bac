@@ -7,3 +7,19 @@ def dec_to_bin(n):
 
 
 print(dec_to_bin(7))
+
+
+
+
+
+
+# def dec_to_bin(n):
+#     ord = 0
+#     bin = 0
+#     while n != 0:
+#         reste = n % 2
+#         puissance = 10 ** ord
+#         bin = bin + reste * puissance
+#         ord = ord + 1
+#         n = n // 2
+#     return bin
