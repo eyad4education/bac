@@ -1,5 +1,5 @@
 n = 5
-t = [3,1,2,5,4]
+t = [3, 1, 2, 5, 4]
 
 for i in range(n):
     index = i
