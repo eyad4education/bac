@@ -16,7 +16,4 @@ while start <= end and not found:
         end = mid-1
 
 
-print(found)
-
-
-print(t)
+print("found =", found)
