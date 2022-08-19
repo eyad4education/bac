@@ -6,7 +6,7 @@ def dec_to_bin(n):
     return ch
 
 
-print(dec_to_bin(7))
+print(dec_to_bin(8))
 
 
 
