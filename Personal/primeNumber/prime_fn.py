@@ -11,4 +11,4 @@ def isPrime(x):
     return flag
 
 
-print(isPrime(3))
+print(isPrime(601))
