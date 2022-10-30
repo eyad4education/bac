@@ -2,9 +2,7 @@ main.py
 *.dat
 *.txt
 !note.txt
-*.algo
-*.alg
-/Hidden4Now
+main.algo
 test.py
 /.vscode
 *.js

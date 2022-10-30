@@ -1,0 +1,22 @@
+fonction bin_hex(ch:chaine) : chaîne
+début
+    Si long(ch) mod 4 > 0 alors
+        pour i de 0 à (4 - (long(ch) mod 4)) faire
+            ch <-- "0" + ch
+        fin_pour
+        hexa <-- ""
+        tant que non(ch="") faire
+            chn <-- sous_chaîne(ch, 0, 4)
+            nb <-- 0
+            pour i de 0 à long(ch) faire
+                nb <-- nb + valeur(chn[long(chn)-1-i]) * (2**i) 
+            fin_pour 
+            si nb > 9 alors
+                hexa <-- hexa + chr(nb+55)
+            sinon
+                hexa <-- hexa + convch(nb)
+            fin_si
+            ch <-- effacer(ch, 0, 4) 
+        fin_tant_que
+        retourner hexa
+fin
