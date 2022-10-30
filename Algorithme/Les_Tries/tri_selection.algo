@@ -1,0 +1,28 @@
+procédure tri_par_sélection(@T: tab_eleves, N:entier)
+début
+    pour i de 0 à N-2 faire
+        // recherche de la position du minimum
+        pos_min <-- i
+        pour j de i+1 à N-1 faire
+            si T[i] > T[pos_min] alors
+                pos_min <-- i
+            fin_si 
+        fin_pour
+        
+        // permutation de la case actuelle (numéro i) avec 
+        // la case qui contient le minimum (numéro pos_min)
+        si i ≠ pos_min alors
+            aux <-- T[i]
+            T[i] <-- T[pos_min]
+            T[pos_min] <--  aux
+        fin_si
+    fin_pour
+fin
+
+┌─────────────────────────────┬───────────────────┐
+│            Objet            │   Nature / Type   │
+├─────────────────────────────┼───────────────────┤
+│ i, j, pos_min               │ entier            │
+├─────────────────────────────┼───────────────────┤
+│ aux                         │ entier            │
+└─────────────────────────────┴───────────────────┘
