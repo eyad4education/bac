@@ -2,10 +2,10 @@ pour i de 0 à N-1 faire
     répéter
         écrire("saisir l'identifiant: ")
         lire(ch)
-        j <-- -1
+        j ← -1
         répéter
-            j <-- j + 1
+            j ← j + 1
         jusqu'à non (ch[j] = "0" ou ch[j] = "1") ou (j = long(ch)-1 )
     jusqu'à (ch[j] = "0") ou (ch[j] = "1")
-    T[i] <-- ch
+    T[i] ← ch
 fin_pour
