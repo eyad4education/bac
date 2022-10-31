@@ -12,22 +12,22 @@ def Genere(Nb):
     v = False
     while not v:
         R = Nb % 3
-
         # "SELON" ALTERNATIVE FOR PYTHON VERSION LESS THAN 3.10
-        # if R == 0:
-        #     Y = "Ma"
-        # elif R == 1:
-        #     Y = "Des"
-        # elif R == 2:
-        #     Y = "Son"
+        if R == 0:
+            Y = "Ma"
+        elif R == 1:
+            Y = "Des"
+        elif R == 2:
+            Y = "Son"
 
-        match R:
-            case 0:
-                Y = "Ma"
-            case 1:
-                Y = "Des"
-            case 2:
-                Y = "Son"
+        # "SELON" (v3.10 or greater)
+        # match R:
+        #     case 0:
+        #         Y = "Ma"
+        #     case 1:
+        #         Y = "Des"
+        #     case 2:
+        #         Y = "Son"
 
         Mot = Y + Mot
         Nb = Nb // 3
