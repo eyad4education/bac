@@ -1,0 +1,26 @@
+procédure tri_à_bulles(@T: tab, n:entier)
+début
+    répéter
+        sorted <-- vrai 
+        pour i de 0 à n-2 faire
+            si T[i] > T[i+1] alors
+                aux <-- T[i]
+                T[i] <-- T[i+1]
+                T[i+1] <-- aux
+                sorted <-- faux 
+            fin_si
+        fin_pour 
+    jusqu'à  sorted
+    
+fin
+
+
+┌─────────────────────────────┬───────────────────┐
+│            Objet            │   Nature / Type   │
+├─────────────────────────────┼───────────────────┤
+│ i                           │ entier            │
+├─────────────────────────────┼───────────────────┤
+│ aux                         │ entier            │
+├─────────────────────────────┼───────────────────┤
+│ sorted                      │ booléen           │
+└─────────────────────────────┴───────────────────┘

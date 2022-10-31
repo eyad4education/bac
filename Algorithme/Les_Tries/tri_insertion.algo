@@ -1,0 +1,26 @@
+procédure tri_par_insertion(@T: tab, n:entier)
+début
+    pour i de 1 à n-1 faire
+        // sauvegarder la valeur à insérer
+        valeur_a_inserer <-- T[i]
+        pos_case_libre <-- i
+        
+        // décalage à droite des valeurs, et recherche de la position d'insertion
+        tant que pos_case_libre > 0 et T[pos_case_libre - 1] > valeur_a_inserer faire
+            T[pos_case_libre] <-- T[pos_case_libre - 1]
+            pos_case_libre <-- pos_case_libre - 1
+        fin_tant_que
+        
+        // insertion de "valeur_a_inserer" à la case libre
+        T[pos_case_libre] <-- valeur_a_inserer
+    fin_pour
+fin
+
+┌─────────────────────────────┬───────────────────┐
+│            Objet            │   Nature / Type   │
+├─────────────────────────────┼───────────────────┤
+│ i                           │ entier            │
+│ pos_case_libre              │                   │
+├─────────────────────────────┼───────────────────┤
+│ valeur_a_inserer            │ entier            │
+└─────────────────────────────┴───────────────────┘
