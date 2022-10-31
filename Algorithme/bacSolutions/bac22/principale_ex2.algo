@@ -1,0 +1,16 @@
+procédure Remplir_F(m:mat, n:entier)
+début
+    écrire_nl("Les sequences contigues des lignes")
+    pour i de 0 à n-1 faire
+        pour j de 0 à n-1 faire
+            s <-- 0
+            pour k de j à n-1 faire
+                s <-- s + m[i,k]
+                si (s = 0) et (j ≠ k) alors
+                    ch <-- convch(i) + " " + convch(j) + " " + convch(k)  
+                fin_si
+            fin_pour
+
+        fin_pour
+    fin_pour
+fin
