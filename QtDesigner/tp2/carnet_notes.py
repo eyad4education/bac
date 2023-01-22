@@ -30,6 +30,8 @@ def init():
         f.cmbM.addItem(str(i))
     for i in range(2013, 1989, -1):
         f.cmbA.addItem(str(i))
+    # cocher le button radio "Croissant"
+    f.rdoCroi.setChecked(True)
     # chargement des niveaux a partir du fichier texte "niveaux.txt"
 
     try:
@@ -42,7 +44,7 @@ def init():
         #boxMsg("Fichier inexistant","alert")
         # décommentez si vous voulez afficher les messages dans un label
         lblMsg("Fichier \"niveaux.txt\" inéxistant !!!")
-
+    
 
 def controle_date():
     nbj = 31
@@ -98,8 +100,7 @@ def Ajouter():
     f.tblFiches.setItem(taille-1, 1, QTableWidgetItem(f.txtPren.text()))
     f.tblFiches.setItem(taille-1, 2, QTableWidgetItem(sexe))
     f.tblFiches.setItem(taille-1, 3, QTableWidgetItem(date))
-    f.tblFiches.setItem(
-        taille-1, 4, QTableWidgetItem(f.lstNiveaux.currentItem().text()))
+    f.tblFiches.setItem(taille-1, 4, QTableWidgetItem(f.lstNiveaux.currentItem().text()))
     f.tblFiches.setItem(taille-1, 5, QTableWidgetItem(option))
 
     boxMsg("Ajouter avec succes", "information")
@@ -131,7 +132,69 @@ def Enregistrer():
             end = True
 
     boxMsg("Enregistrer avec succes", "")
-
+def Trier(t, n, sb):
+    pas = 0
+    while pas < n:
+        pas = pas * 3 + 1
+    valid = False
+    while not valid:
+        pas = pas // 3
+        for i in range(pas, n):
+            aux = t[i]
+            p = i - pas
+            while p >= 0 and str(t[p][sb])[0] > str(aux[sb])[0]:
+                t[p+pas] = t[p]
+                p = p - pas
+            
+            t[p+pas] = aux
+        valid = pas == 1
+    
+def Tri():
+    global t
+    if f.rdoCroi.isChecked():
+        n = f.tblFiches.rowCount()
+        t = [dict()] * n
+        for i in range(n):
+            e = dict()
+            e["nom"] = f.tblFiches.item(i, 0).text()
+            e["prenom"] = f.tblFiches.item(i, 1).text()
+            e["sexe"] = f.tblFiches.item(i, 2).text()
+            e["date"] = f.tblFiches.item(i, 3).text()
+            e["niv"] = f.tblFiches.item(i, 4).text()
+            e["option"] = f.tblFiches.item(i, 5).text()
+            t[i] = e
+        sortBy = f.cmbTri.currentText()
+        Trier(t,n, sortBy)
+        f.tblFiches.setRowCount(n)
+        for i in range(1,n):
+            f.tblFiches.setItem(i, 0, QTableWidgetItem(t[i-1]["nom"]))
+            f.tblFiches.setItem(i, 1, QTableWidgetItem(t[i-1]["prenom"]))
+            f.tblFiches.setItem(i, 2, QTableWidgetItem(t[i-1]["sexe"]))
+            f.tblFiches.setItem(i, 3, QTableWidgetItem(t[i-1]["date"]))
+            f.tblFiches.setItem(i, 4, QTableWidgetItem(t[i-1]["niv"]))
+            f.tblFiches.setItem(i, 5, QTableWidgetItem(t[i-1]["option"]))
+    else:
+        n = f.tblFiches.rowCount()
+        t = [dict()] * n
+        for i in range(n):
+            e = dict()
+            e["nom"] = f.tblFiches.item(i, 0).text()
+            e["prenom"] = f.tblFiches.item(i, 1).text()
+            e["sexe"] = f.tblFiches.item(i, 2).text()
+            e["date"] = f.tblFiches.item(i, 3).text()
+            e["niv"] = f.tblFiches.item(i, 4).text()
+            e["option"] = f.tblFiches.item(i, 5).text()
+            t[i] = e
+        sortBy = f.cmbTri.currentText()
+        Trier(t, n, sortBy)
+        f.tblFiches.setRowCount(n)
+        for i in range(1,n):
+            f.tblFiches.setItem(i, 0, QTableWidgetItem(t[n-i-1]["nom"]))
+            f.tblFiches.setItem(i, 1, QTableWidgetItem(t[n-i-1]["prenom"]))
+            f.tblFiches.setItem(i, 2, QTableWidgetItem(t[n-i-1]["sexe"]))
+            f.tblFiches.setItem(i, 3, QTableWidgetItem(t[n-i-1]["date"]))
+            f.tblFiches.setItem(i, 4, QTableWidgetItem(t[n-i-1]["niv"]))
+            f.tblFiches.setItem(i, 5, QTableWidgetItem(t[n-i-1]["option"]))
 
 app = QApplication([])       # Création d'une instance d'application
 f = loadUi("interface.ui")      # charger le fichier crée par Qt Designer
@@ -144,5 +207,7 @@ f.btnAjouter.clicked.connect(controle_Formulaire)
 f.cmbM.currentIndexChanged.connect(controle_date)
 f.cmbA.currentIndexChanged.connect(controle_date)
 f.btnEng.clicked.connect(Enregistrer)
-
+f.cmbTri.currentIndexChanged.connect(Tri)
+f.rdoCroi.clicked.connect(Tri)
+f.rdoDecroi.clicked.connect(Tri)
 app.exec_()                            # exécution de l'application

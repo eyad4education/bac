@@ -496,6 +496,85 @@ background-color: rgb(170, 255, 127);</string>
     </size>
    </property>
   </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>360</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Trier par:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbTri">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>360</y>
+     <width>91</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>nom</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>prenom</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>sexe</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>date</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>niv</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>option</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QRadioButton" name="rdoCroi">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>340</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Croissant</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rdoDecroi">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>340</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Decroissant</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
