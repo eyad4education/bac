@@ -2,7 +2,7 @@ main.py
 *.dat
 *.txt
 !note.txt
-main.algo
+prog.algo
 test.py
 /.vscode
 *.js
